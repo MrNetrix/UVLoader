@@ -4,3 +4,4 @@
 *.o
 *.bin
 uvloader
+uvloader_debug

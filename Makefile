@@ -8,7 +8,7 @@ OBJCOPYFLAGS=
 
 OBJ=uvloader.o cleanup.o load.o relocate.o resolve.o utils.o scefuncs.o debugnet.o
 
-all: uvloader
+all: uvloader_debug
 
 scefuncs.o: scefuncs.c
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -16,11 +16,11 @@ scefuncs.o: scefuncs.c
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS) $(CFLAGS_THUMB)
 
-uvloader: $(OBJ)
+uvloader_debug: $(OBJ)
 	$(LD) -o $@ $^ $(LDFLAGS)
 	$(OBJCOPY) -O binary $@ $@.bin
 
 .PHONY: clean
 
 clean:
-	rm -rf *~ *.o *.elf *.bin *.s uvloader
+	rm -rf *~ *.o *.elf *.bin *.s uvloader_debug
