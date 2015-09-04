@@ -14,8 +14,6 @@ static struct SceNetSockaddrIn stSockAddr;
 
 int debugNetSetup()
 {
-    uvl_debug_log_psm("Setting up debugnet");
-
     uvl_scefuncs_resolve_debugnet();
 
     uvl_set_debug_log_func(&uvl_debugnet_log);
