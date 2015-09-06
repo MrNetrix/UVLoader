@@ -9,8 +9,6 @@
 #include "types.h"
 #include "utils.h"
 
-#define UVL_WRITE_NID           0x10000001
-
 #define PSP2_NET_AF_INET        2
 #define PSP2_NET_SOCK_DGRAM     2
 #define PSP2_NET_IPPROTO_UDP    17

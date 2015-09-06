@@ -189,9 +189,9 @@ uvl_add_uvl_exports (void)
     entry.value.func_ptr = uvl_load;
     uvl_resolve_table_add(&entry);
 
-    entry.nid = UVL_WRITE_NID;
+    entry.nid = UVL_LOG_WRITE_NID;
     entry.type = RESOLVE_TYPE_FUNCTION;
-    entry.value.func_ptr = uvl_write;
+    entry.value.func_ptr = uvl_log_write;
     uvl_resolve_table_add(&entry);
 }
 
@@ -305,7 +305,7 @@ uvl_exit (int status)
 }
 
 int
-uvl_write(int fd, const void* buffer, u64_t size)
+uvl_log_write(const void* buffer, u32_t size)
 {
-    return debugNetSend(buffer, (u32_t)size);
+    return debugNetSend(buffer, size);
 }

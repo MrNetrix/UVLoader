@@ -20,6 +20,8 @@
 #define UVL_DEBUG_LOG_NID       0xD4F59028      ///< uvl_debug_log
 #define UVL_LOAD_NID            0xE8E92954      ///< uvl_load
 
+#define UVL_LOG_WRITE_NID       0x10000001  ///< uvl_log_write
+
 #define LOADED_INFO_SIZE        0x1000          ///< Must be page aligned
 
 /** \name UVLoader version information
@@ -80,7 +82,7 @@ int uvl_debug_log_psm (const char *line);
 int uvl_load (const char *path);
 void uvl_exit (int status);
 
-int uvl_write(int fd, const void* buffer, u64_t size);
+int uvl_log_write(const void* buffer, u32_t size);
 
 typedef int(*debug_log_func)(const char* line);
 void uvl_set_debug_log_func(debug_log_func func);
