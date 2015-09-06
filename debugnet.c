@@ -23,7 +23,7 @@ int debugNetSetup()
 
 int uvl_debugnet_log(const char *line)
 {
-    return debugNetSend(line, strlen(line));
+    return debugNetUDPPrintf("%s\n", line);
 }
 
 int debugNetSend(const char* line, u32_t size)
@@ -50,7 +50,8 @@ void debugNetUDPPrintf(const char* fmt, ...)
   va_start(arg, fmt);
   sceClibVsnprintf(buffer, sizeof(buffer), fmt, arg);
   va_end(arg);
-  uvl_debugnet_log(buffer);
+  
+  debugNetSend(buffer, strlen(buffer));
 }
 
 /**
